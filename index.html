@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Selection</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Gift Card */
+        .gift-card {
+            padding: 15px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #d8b4fe; 
+            color: #4a0072;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gift-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Collapsible Sections */
+        .hidden {
+            display: none;
+        }
+
+        .subcategory {
+            font-size: 14px;
+            margin-top: 10px;
+            background: #f3e8ff;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .subcategory h3 {
+            color: #4a0072;
+            font-size: 16px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        /* Responsive Grid Layout */
+        .grid {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        /* Default 3-column grid, adjusts for smaller screens */
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 599px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* Individual Gift Items */
+        .grid div {
+            padding: 10px;
+            background: white;
+            border: 1px solid #d8b4fe;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #4a0072;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .grid div:hover {
+            background: #e0c3fc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Select Your Potential Gifts</h2>
+
+        <!-- Sensitive Gift Card -->
+        <div class="gift-card" onclick="toggleSensitive()">SENSITIVE × 1</div>
+
+        <!-- Expanded Sensitive Section -->
+        <div id="sensitive-section" class="hidden">
+            <div class="subcategory">
+                <h3>ORNATE</h3>
+                <div class="grid">
+                    <div>Ornamented Music</div>
+                    <div>Rhetorics</div>
+                    <div>Woman in Flower</div>
+                    <div>Lyricist</div>
+                    <div>Vibrant Colors</div>
+                    <div>Repetitive Rhythms</div>
+                    <div>Gothic Architecture</div>
+                    <div>Floral Patterns</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>IMAGINATION</h3>
+                <div class="grid">
+                    <div>Imaginative</div>
+                    <div>Ethereal/Dreamlike</div>
+                    <div>Bling Jewelry</div>
+                    <div>Romanticize Reality</div>
+                    <div>Religious Imagination</div>
+                    <div>Fantasy Painting</div>
+                    <div>Hallucination</div>
+                    <div>Dreamlike Confusion</div>
+                    <div>Schizophrenia</div>
+                    <div>Portal to Another World</div>
+                    <div>Escapism</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>EMPATHY</h3>
+                <div class="grid">
+                    <div>Animal Suffering</div>
+                    <div>Human Suffering</div>
+                    <div>Sensitivity</div>
+                    <div>Empathy</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>IMPRESSIONABLE</h3>
+                <div class="grid">
+                    <div>Indecisive/Dilemma</div>
+                    <div>Always Changing</div>
+                    <div>Ceramic Art</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>COMPREHENSIVE</h3>
+                <div class="grid">
+                    <div>Barbie Collections</div>
+                    <div>Cosmopolitan</div>
+                    <div>Present Comprehensively</div>
+                    <div>Newspaper Magazine</div>
+                    <div>Illustration</div>
+                    <div>Narrative</div>
+                    <div>Encyclopedia</div>
+                    <div>Website</div>
+                    <div>Investments</div>
+                    <div>Documentary</div>
+                    <div>Comprehensive Game</div>
+                    <div>Story Collection</div>
+                    <div>Diamond Collection</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>INTUITION</h3>
+                <div class="grid">
+                    <div>Intuition</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>NOTHINGNESS</h3>
+                <div class="grid">
+                    <div>No Self</div>
+                    <div>Into Nothingness</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSensitive() {
+            const section = document.getElementById("sensitive-section");
+            section.classList.toggle("hidden");
+        }
+    </script>
+
+</body>
+</html>
